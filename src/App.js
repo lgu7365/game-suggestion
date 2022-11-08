@@ -1,12 +1,24 @@
-import './App.css';
 import Header from './component/Header'
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Home from './pages/Home';
+import Genre from './pages/Genre';
+import Newgame from './pages/Newgame';
+import Popular from './pages/Popular';
 import 'bootstrap/dist/css/bootstrap.css'
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Header />
+        <Routes>
+          <Route path='/home' element={<Home />} />
+          <Route path='/newgame' element={<Newgame />} />
+          <Route path='/genre' element={<Genre />} />
+          <Route path='/popular' element={<Popular />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 

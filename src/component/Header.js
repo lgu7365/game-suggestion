@@ -9,7 +9,7 @@ function Header() {
   return (
       <Navbar bg="white" expand="md" style={{borderBottom: '1px solid rgb(0 0 0 / 8%)'}}>
       <Container fluid>
-        <Navbar.Brand href="#"><strong>Game suggestion</strong></Navbar.Brand>
+        <Navbar.Brand href="home"><strong>Game suggestion</strong></Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav
@@ -17,9 +17,9 @@ function Header() {
             style={{ maxHeight: '100px' }}
             navbarScroll
           >
-            <Nav.Link href="#newgame">신작게임</Nav.Link>
-            <Nav.Link href="#genre">장르별게임</Nav.Link>
-            <Nav.Link href="#popular">인기게임</Nav.Link>
+            <Nav.Link href="newgame">신작게임</Nav.Link>
+            <Nav.Link href="genre">장르별게임</Nav.Link>
+            <Nav.Link href="popular">인기게임</Nav.Link>
           </Nav>
           <Form className="d-flex">
             <Form.Control
