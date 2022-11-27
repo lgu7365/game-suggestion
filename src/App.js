@@ -1,4 +1,5 @@
-import Header from './component/Header'
+import Header from './component/Header';
+import Footer from './component/Footer';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from './pages/Home';
 import Genre from './pages/Genre';
@@ -17,6 +18,7 @@ function App() {
           <Route path='/genre' element={<Genre />} />
           <Route path='/popular' element={<Popular />} />
         </Routes>
+        <Footer />
       </div>
     </BrowserRouter>
   );

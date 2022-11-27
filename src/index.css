@@ -9,15 +9,18 @@ body {
 ul {
   list-style: none;
 }
-@media screen and (min-width: 1200px) {
-  .home {
-    margin: 0 calc(50vw - 600px);
-  }
+.slider a {
+  text-decoration: none;
+  color: #000;
 }
-
+.slider a:hover {
+  color: #000;
+}
+.slider {
+  position: relative;
+}
+.genre-title,
 .section-title {
-  padding: 32px 0 14px 20px;
-  font-size: 22px;
   font-weight: 700;
 }
 .gm-list {
@@ -27,29 +30,24 @@ ul {
   transition: transform 1s ease-in-out;
 }
 .gm-list li {
-  padding: 0 20px;
   width: 33.3%;
-  font-size: 14px;
 }
 .gm-list li img {
   border-radius: 5px;
 }
 .gm-list .game-title {
-  font-size: 16px;
   font-weight: 600;
 }
 .gm-list .game-developer {
   color: #74747b;
   white-space: normal;
-  font-size: 13px;
   font-weight: 400;
 }
 .gm-box {
-  position: relative;
   overflow: hidden;
 }
-.gm-box .prev,
-.gm-box .next {
+.prev,
+.next {
   position: absolute;
   border: 1px solid rgb(249, 249, 249);
   border-radius: 50%;
@@ -62,11 +60,65 @@ ul {
   display: flex;
   justify-content: center;
   align-items: center;
-  top: 35%;
+  top: 45%;
 }
-.gm-box .prev {
-  left: 0;
+.prev {
+  left: -5px;
 }
-.gm-box .next {
-  right: 0;
+.next {
+  right: -5px;
+}
+footer {
+  background-color: #333;
+  padding: 20px 10px;
+  color: #a5a5a7;
+  margin-top: 100px;
+}
+@media screen and (min-width: 1200px) {
+  .home {
+    margin: 0 calc(50vw - 600px);
+  }
+  .genre-title {
+    padding: 32px 0 0 20px;
+    font-size: 32px;
+  }
+  .section-title {
+    padding: 32px 0 14px 20px;
+    font-size: 22px;
+  }
+  .gm-list li {
+    padding: 0 20px;
+    font-size: 14px;
+  }
+  .gm-list .game-title {
+    font-size: 16px;
+  }
+  .gm-list .game-developer {
+    font-size: 13px;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .home {
+    margin: 0 calc(50vw - 600px);
+  }
+  .genre-title {
+    padding: 32px 0 0 20px;
+    font-size: 32px;
+  }
+  .section-title {
+    padding: 32px 0 14px 20px;
+    font-size: 22px;
+  }
+  .gm-list .game-title {
+    font-size: 16px;
+  }
+  .gm-list .game-developer {
+    font-size: 13px;
+  }
+  .gm-list li img {
+    width: 30vw;
+  }
+  .gm-list li {
+    padding: 0 1.667vw;
+  }
 }
