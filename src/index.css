@@ -9,10 +9,16 @@ body {
 ul {
   list-style: none;
 }
+.newgame a,
+.populargm a,
+.genre a,
 .slider a {
   text-decoration: none;
   color: #000;
 }
+.newgame a:hover,
+.populargm a:hover,
+.genre a:hover,
 .slider a:hover {
   color: #000;
 }
@@ -45,6 +51,77 @@ ul {
 }
 .gm-box {
   overflow: hidden;
+}
+.newgame .newgame-list img {
+  border-radius: 5px;
+  width: 300px;
+}
+.newgame .newgame-list li {
+  margin-bottom: 30px;
+}
+.newgame .newgame-list li a {
+  display: flex;
+}
+.newgame .newgame-list .game-content {
+  padding: 30px 0 0 30px;
+}
+.newgame .newgame-list .game-content .game-title{
+  font-size: 22px;
+  font-weight: 700;
+  padding-bottom: 10px;
+}
+.newgame .newgame-list .game-content .game-description {
+  color: #74747b;
+}
+
+.populargm .populargm-list img {
+  border-radius: 5px;
+  width: 300px;
+}
+.populargm .populargm-list li {
+  margin-bottom: 30px;
+}
+.populargm .populargm-list li a {
+  display: flex;
+}
+.populargm .populargm-list .game-content {
+  padding: 30px 0 0 30px;
+}
+.populargm .populargm-list .game-content .game-title{
+  font-size: 22px;
+  font-weight: 700;
+  padding-bottom: 10px;
+}
+.populargm .populargm-list .game-content .game-description {
+  color: #74747b;
+}
+
+.genre .genre-list img {
+  border-radius: 5px;
+  width: 300px;
+}
+.genre .genre-list li {
+  margin-bottom: 30px;
+}
+.genre .genre-list li a {
+  display: flex;
+}
+.genre .genre-list .game-content {
+  padding: 30px 0 0 30px;
+}
+.genre .genre-list .game-content .game-title{
+  font-size: 22px;
+  font-weight: 700;
+  padding-bottom: 10px;
+}
+.genre .genre-list .game-content .game-description {
+  color: #74747b;
+}
+.select-box {
+  padding: 24px 0 0 32px;
+}
+.select-box label {
+  padding-right: 0.5em;
 }
 .prev,
 .next {
@@ -96,29 +173,42 @@ footer {
   .gm-list .game-developer {
     font-size: 13px;
   }
+  .newgame,
+  .populargm,
+  .genre {
+    margin: 0 calc(50vw - 600px);
+  }
+  .newgame-list,
+  .populargm-list,
+  .genre-list {
+    margin: 40px 0;
+  }
 }
 @media screen and (max-width: 1200px) {
   .home {
-    margin: 0 calc(50vw - 600px);
+    margin: 0;
+  }
+  .slider {
+    margin: 0 12px;
   }
   .genre-title {
     padding: 32px 0 0 20px;
-    font-size: 32px;
+    font-size: 28px;
   }
   .section-title {
     padding: 32px 0 14px 20px;
-    font-size: 22px;
+    font-size: 20px;
   }
   .gm-list .game-title {
-    font-size: 16px;
+    font-size: 14px;
   }
   .gm-list .game-developer {
-    font-size: 13px;
+    font-size: 11px;
   }
   .gm-list li img {
-    width: 30vw;
+    width: 29vw;
   }
   .gm-list li {
-    padding: 0 1.667vw;
+    padding: 0 1.5vw;
   }
 }
