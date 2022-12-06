@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-const URL = `https://cors-anywhere.herokuapp.com/https://www.freetogame.com/api/games`;
+const URL = `https://cors-anywhere.herokuapp.com/https://www.freetogame.com/api/games?sort-by=popularity`;
 
 function Popular() {
   const [data, setData] = useState([]);
@@ -31,7 +31,7 @@ function Popular() {
       <ul className="populargm-list">
         {data.slice(0, 10).map(data => (
           <li key={data.id}>
-            <Link to="#">
+            <Link to={'/detailinfo/' + data.id}>
             <img src={data.thumbnail} alt="썸네일" />
             <div className="game-content">
               <div className="game-title">{data.title}</div>

@@ -1,4 +1,5 @@
 import Header from './component/Header';
+import Detailinfo from './component/Detailinfo';
 import Footer from './component/Footer';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from './pages/Home';
@@ -18,6 +19,7 @@ function App() {
           <Route path='/newgame' element={<Newgame />} />
           <Route path='/genre' element={<Genre />} />
           <Route path='/popular' element={<Popular />} />
+          <Route path='/detailinfo/:dataId' element={<Detailinfo />}></Route>
         </Routes>
         <Footer />
       </div>

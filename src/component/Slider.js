@@ -50,7 +50,7 @@ function Slider(props) {
         <ul className="gm-list" style={{transform: `translateX(${slider}%)`}}>
           {data.slice(0, 10).map(data => (
               <li key={data.id}>
-                <Link to="#">
+                <Link to={'/detailinfo/' + data.id}>
                 <img src={data.thumbnail} alt="썸네일" />
                 <div className="game-title">{data.title}</div>
                 <div className="dateandflatform">{data.release_date} ・ {data.platform}</div>
