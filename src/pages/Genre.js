@@ -80,7 +80,7 @@ function Genre() {
       <ul className="genre-list">
         {data.slice(0, 10).map(data => (
           <li key={data.id}>
-            <Link to={'/detailinfo/' + data.id}>
+            <Link to={'/detailinfo/id=' + data.id}>
             <img src={data.thumbnail} alt="썸네일" />
             <div className="game-content">
               <div className="game-title">{data.title}</div>
