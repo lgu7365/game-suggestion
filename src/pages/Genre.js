@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import Loading from "../component/Loading";
 
 const URL = `https://cors-anywhere.herokuapp.com/https://www.freetogame.com/api/games?`;
 
@@ -12,24 +13,29 @@ function Genre() {
   const [genrevalue, setGenrevalue] = useState('');
   const [platform, setPlatform] = useState('');
   const [pfvalue, setPfvalue] = useState('');
+  const [connect, setConnect] = useState('');
 
   const changegenre = (e) => {
     setGenrevalue(e.target.value);
     if(e.target.value === ''){
       setGenre('');
+      setConnect('');
     } else {
       setGenre('category='+e.target.value);
+      if(platform !== ''){
+        setConnect('&');
+      }
     }
   }
   const changeplatform = (e) => {
     setPfvalue(e.target.value);
     if(e.target.value === ''){
       setPlatform('');
+      setConnect('');
     } else {
-      if(genre === ''){
-        setPlatform('platform='+e.target.value);
-      } else {
-        setPlatform('&platform='+e.target.value);
+      setPlatform('platform='+e.target.value);
+      if(genre !== ''){
+        setConnect('&');
       }
     }
   }
@@ -38,7 +44,7 @@ function Genre() {
       try {
         setLoading(true);
         setError(null);
-        const response = await axios.get(URL+genre+platform);
+        const response = await axios.get(URL+genre+connect+platform);
         setData(response.data);
       } catch(e) {
         setError(e);
@@ -47,7 +53,7 @@ function Genre() {
     };
     fetchData();
   }, [genre, platform]);
-  if (loading) return <div>로딩 중..</div>;
+  if (loading) return <Loading />;
   if (error) return <div>에러가 발생했습니다</div>;
   if (!data) return null;
   return (
@@ -78,7 +84,7 @@ function Genre() {
         </select>
       </div>
       <ul className="genre-list">
-        {data.slice(0, 10).map(data => (
+        {data.status === 0 ? <div>검색결과가 없습니다...</div> : data.slice(0, 10).map(data => (
           <li key={data.id}>
             <Link to={'/detailinfo/id=' + data.id}>
             <img src={data.thumbnail} alt="썸네일" />

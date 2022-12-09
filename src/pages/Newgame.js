@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import Loading from "../component/Loading";
 
 const URL = `https://cors-anywhere.herokuapp.com/https://www.freetogame.com/api/games?sort-by=release-date`;
 
@@ -23,7 +24,7 @@ function Newgame() {
     };
     fetchData();
   }, []);
-  if (loading) return <div>로딩 중..</div>;
+  if (loading) return <Loading />;
   if (error) return <div>에러가 발생했습니다</div>;
   if (!data) return null;
   return (

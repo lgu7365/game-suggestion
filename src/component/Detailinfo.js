@@ -1,6 +1,7 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
-import {useParams} from "react-router-dom";
+import { useParams } from "react-router-dom";
+import Loading from "./Loading";
 
 function Detailinfo() {
   const {dataId} = useParams();
@@ -23,7 +24,7 @@ function Detailinfo() {
     };
     fetchData();
   }, []);
-  if (loading) return <div>로딩 중..</div>;
+  if (loading) return <Loading />;
   if (error) return <div>에러가 발생했습니다</div>;
   if (!data) return null;
   return (
@@ -63,8 +64,82 @@ function Detailinfo() {
           </div>
         </div>
         <div className="game-detail-info">
-          <h3>기본 정보</h3>
-
+          <div className="detail-info-content">
+            <div className="basic-info">
+              <h5>기본 정보</h5>
+              <div className="d-game-title">Title: {data.title}</div>
+              <div className="d-game-date">{data.release_date}</div>
+              <div className="d-game-developer">{data.genre}・{data.platform}</div>
+              <div className="d-game-description">{data.description}</div>
+            </div>
+            <div className="play-image-content">
+              <h5>플레이 이미지</h5>
+              <ul className="play-image-list">
+                {data.screenshots ? data.screenshots.map(data => (
+                  <li key={data.id}>
+                    <img src={data.image} alt="게임 플레이 이미지" />
+                  </li>
+                )) : '없음'}
+              </ul>
+            </div>
+          </div>
+          <div className="additional-info">
+            <div className="additional-info-contents">
+              <h5>추가 정보</h5>
+              <div className="add-info-container">
+                <div className="add-title">
+                  <span>Title</span>
+                  <p>{data.title}</p>
+                </div>
+                <div className="add-developer">
+                  <span>Developer</span>
+                  <p>{data.developer}</p>
+                </div>
+                <div className="add-publisher">
+                  <span>Publisher</span>
+                  <p>{data.publisher}</p>
+                </div>
+                <div className="add-date">
+                  <span>Release Date</span>
+                  <p>{data.release_date}</p>
+                </div>
+                <div className="add-genre">
+                  <span>Genre</span>
+                  <p>{data.genre}</p>
+                </div>
+                <div className="add-platform">
+                  <span>Platform</span>
+                  <p>{data.platform}</p>
+                </div>
+              </div>
+            </div>
+            <div className="require-info">
+              <h5>최소 시스템 사양</h5>
+              {data.minimum_system_requirements ? 
+              <div className="require-info-container">
+                <div className="require-os">
+                  <span>OS</span>
+                  <p>{data.minimum_system_requirements.os}</p>
+                </div>
+                <div className="require-processor">
+                  <span>Processor</span>
+                  <p>{data.minimum_system_requirements.processor}</p>
+                </div>
+                <div className="require-memory">
+                  <span>Memory</span>
+                  <p>{data.minimum_system_requirements.memory}</p>
+                </div>
+                <div className="require-graphics">
+                  <span>Graphics</span>
+                  <p>{data.minimum_system_requirements.graphics}</p>
+                </div>
+                <div className="require-storage">
+                  <span>Storage</span>
+                  <p>{data.minimum_system_requirements.storage}</p>
+                </div>
+              </div> : '없음'}
+            </div>
+          </div>
         </div>
       </div>
   );
